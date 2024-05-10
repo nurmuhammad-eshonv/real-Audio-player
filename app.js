@@ -31,8 +31,6 @@ const changeTrack = (i) => {
   titleEl.textContent = `${tracks[i]}`
   audioEl.src = `/music/${tracks[i]}.mp3`;
   coverEl.src = `/img/${tracks[i]}.jpg`;
-  body.style.backgroundImage = `/img/${tracks[i]}.jpg`
-  body.style.backgroundImage = `url('/img/${tracks[i]}.jpg')`;
 };
 changeTrack(currentTrack);
 
@@ -119,13 +117,6 @@ audioEl.addEventListener('timeupdate', () => {
   updateTime(currentTime, duration);
 });
 
-body.style.backgroundRepeat = 'no-repeat';
-body.style.backgroundImage = `url('/img/${tracks[currentTrack]}.jpg')`;
-body.style.backgroundSize = "cover"; // Rasmni to'g'ri miqyosda o'lchash
-body.style.backgroundRepeat = "repeat"; // Rasmni qayta qayta takrorlanmasligi
-body.style.backgroundPosition = "center"; // 
-body.style.backgroundOrigin = "0.7"
-body.style.backgroundColor = "rgba(10, 20, 19, 0.7)"
 
 function updateTimer(currentTime, duration) {
   const currentMinutes = Math.floor(currentTime / 60);
