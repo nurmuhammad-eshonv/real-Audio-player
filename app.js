@@ -12,6 +12,8 @@ const progressContainerEl = document.getElementById('progress-container')
 const timeContainerEl = document.getElementById('time-container');
 const body = document.querySelector('body')
 const progressEl = document.getElementById('progress')
+const startSpan = document.getElementById('startSpan')
+const timeSpan = document.getElementById("timeSpan")
 
 const tracks = [
   "Konsta-Insonlar",
@@ -124,3 +126,21 @@ body.style.backgroundRepeat = "repeat"; // Rasmni qayta qayta takrorlanmasligi
 body.style.backgroundPosition = "center"; // 
 body.style.backgroundOrigin = "0.7"
 body.style.backgroundColor = "rgba(10, 20, 19, 0.7)"
+
+function updateTimer(currentTime, duration) {
+  const currentMinutes = Math.floor(currentTime / 60);
+  const currentSeconds = Math.floor(currentTime % 60);
+  const durationMinutes = Math.floor(duration / 60);
+  const durationSeconds = Math.floor(duration % 60);
+  
+  let times;
+  if (isNaN(duration)) {
+      timeSpan.textContent = '00:00';
+  } else {
+      times = `${durationMinutes.toString().padStart(2, '0')}:${durationSeconds.toString().padStart(2, '0')}`;
+      timeSpan.textContent = times;
+      startSpan.textContent = currentTimeString;
+  }
+
+  startSpan.textContent = currentTimeString;
+}
